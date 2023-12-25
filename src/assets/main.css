@@ -1,2 +1,7 @@
 @import './base.css';
+@import './tailwind.css';
 
+
+.is-active.mymenu-item i.el-icon svg path{
+    stroke: #0B63F8 !important;
+}

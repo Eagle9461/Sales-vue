@@ -13,7 +13,7 @@
   
 <script setup lang="ts">
 
-import Sidebar from "./Sidebar.vue";
+import Sidebar from "../../components/Sidebar.vue";
 import Content from "./ContentView.vue";
 </script>
 
@@ -22,9 +22,12 @@ import Content from "./ContentView.vue";
     .aside{
         background-color: white;
         height: 100%;
+        width: 230px;
     }
+
     .el-container{
         height: 100vh;
+        background: #F8F8F8;
     }
 
 </style>
