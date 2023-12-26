@@ -1,30 +1,36 @@
 <template>
-  <!-- <div>
-    <SearchInput @response="txt => searchItem = txt" placeholder="Search.." />
-  </div>   -->
-  <TopHeader/>
   <div>
-    
-    <span>Title:</span>
-    <TextInput @response="txt => insertData = { title: txt }" />
-    <span>Brand:</span>
-    <TextInput @response="txt => insertData = { brand: txt }" />
+  </div>  
+  <TopHeader>
+    <SearchInput @response="txt => searchItem = txt" placeholder="Search.." />
+  </TopHeader>
+  <div>
+    <TextInput @response="txt => insertData = { title: txt }" label="Title" />
+    <TextInput @response="txt => insertData = { brand: txt }" label="Brand"/>
   </div>
+    
 
-  <span style="color:red">{{ searchItem }}</span>
   <h4>Products Information</h4>
 
-  <EasyDataTable v-model:items-selected="itemsSelected" :headers="headers" :items="items">
+  <EasyDataTable 
+    v-model:items-selected="itemsSelected" 
+    :headers="headers" 
+    :items="items"
+    table-class-name="customize-table"
+  >
     <template #loading>
       <img src="https://thumbs.gfycat.com/AngelicYellowIberianmole.webp" style="width: 60px; height: 100px" />
     </template>
     <template #header-title="{text}">
       <!-- <div @click="visible=!visible">{{ text }}</div> -->
-
-      <SearchDropdown title="Title" @response="(txt: string) => searchItem = txt"/>
+      Title
+      <!-- <SearchDropdown title="Title" @response="(txt: string) => searchItem = txt"/> -->
     </template>
     <template #item-title="{ title, id }">
-      <a :href="dLink + id">{{ title }}</a>
+      <a :href="dLink + id" class="link">{{ title }}</a>
+    </template>
+    <template>
+
     </template>
   </EasyDataTable>
 </template>
@@ -84,10 +90,27 @@ const headers: Header[] = [
 
 </script>
 
+<style>
+.customize-table {
+  padding: 30px 0 0 0;
+  --easy-table-row-border: 1px solid #F2F2F2;
+  --easy-table-border: 0px;
+  --easy-table-header-item-padding: 10px 15px;
+  --easy-table-body-item-padding: 10px 15px;
+  --easy-table-body-item-padding: 10px 15px;
+}
+.customize-table table tr td{
+  border: none;
+  /* border-bottom: 1px solid #F2F2F2; */
+}
+
+</style>
+
 <style scoped>
 .invisible{
   display: none;
 }
-
-
+.link{
+  color: #0B63F8;
+}
 </style>

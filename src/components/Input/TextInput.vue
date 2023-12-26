@@ -1,9 +1,9 @@
 <template>
   <div>
-    <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
+    <label for="price" class="block text-sm font-medium leading-6 text-gray-900">{{props.label}}</label>
     <div class="relative mt-2 rounded-md shadow-sm">
       <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-        <span class="text-gray-500 sm:text-sm">$</span>
+        <span class="text-gray-500 sm:text-sm"></span>
       </div>
       <input 
         type="text" 
@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
     const emit = defineEmits(['response']);
-    const props = defineProps(['placeholder']);
+    const props = defineProps(['placeholder', 'label']);
     
     const handleInput = (e:any) => {
         emit('response', e.target.value)
